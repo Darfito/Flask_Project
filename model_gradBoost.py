@@ -51,7 +51,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 import joblib
 
 # Group the variables
-X = response.iloc[:, 3:5]
+X = response.iloc[:, [3,4,5]]
 y = response.iloc[:, 7]
 
 # Split the data into training and testing sets
