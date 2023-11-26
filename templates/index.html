@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Project Avd Prak</title>
+  </head>
+  <body>
+    <div class="progression-bar">
+      <div class="first-color"></div>
+      <div class="second-color"></div>
+      <div class="third-color"></div>
+    </div>
+    <div
+      class="container-fluid d-flex flex-column justify-content-center align-items-center"
+    >
+      <div class="title my-5">
+        <h1>Peranan Aktivitas Fisik Terhadap Tingkat Stress Mahasiswa</h1>
+      </div>
+      <div class="konten">
+        <form
+          method="post"
+          action="{{ url_for('predict') }}"
+          class="p-4 d-flex flex-column justify-content-center align-items-center"
+        >
+          <div class="row mb-4">
+            <label for="food" class="form-label mb-3"
+              >Seberapa sering Anda mengonsumsi makanan sehat dan seimbang (4
+              sehat 5 sempurna) dalam seminggu?</label
+            >
+            <select
+              name="food"
+              id="food"
+              class="form-select py-2 px-3"
+              aria-label="Default select example"
+            >
+              <option selected disabled>Please Select</option>
+              <option value="0">Sangat Jarang</option>
+              <option value="1">Jarang</option>
+              <option value="2">Normal</option>
+              <option value="3">Sering</option>
+              <option value="4">Sangat Sering</option>
+            </select>
+          </div>
+          <div class="row mb-4">
+            <label for="weight" class="form-label mb-3"
+              >Apakah Anda melihat perubahan berat badan yang signifikan akibat
+              stres?</label
+            >
+            <select
+              name="weight"
+              id="weight"
+              class="form-select py-2 px-3"
+              aria-label="Default select example"
+            >
+              <option selected disabled>Please Select</option>
+              <option value="0">Tidak</option>
+              <option value="1">Ya</option>
+            </select>
+          </div>
+          <div class="row mb-4">
+            <label for="exercise" class="form-label mb-3"
+              >Seberapa sering Anda berolahraga dalam seminggu?</label
+            >
+            <select
+              name="exercise"
+              id="exercise"
+              class="form-select py-2 px-3"
+              aria-label="Default select example"
+            >
+              <option selected disabled>Please Select</option>
+              <option value="0">Sangat Jarang</option>
+              <option value="1">Jarang</option>
+              <option value="2">Normal</option>
+              <option value="3">Sering</option>
+              <option value="4">Sangat Sering</option>
+            </select>
+          </div>
+          <button type="submit" class="button">See Result</button>
+        </form>
+      </div>
+      <div class="result gap-3">
+        <img
+          src="{{ url_for('static', filename='healthcare-insurance-executive-providing-customer-support-2822965-2348914 1.svg') }}"
+          alt=""
+        />
+        <div class="result-text">
+          <p>
+            {{ prediction_text }}
+            <!-- Dari data diatas, dapat disimpulkan bahwa kualitas fisik Anda
+            <span class="text-success">tidak berpengaruh</span> pada
+            <span class="text-danger">tingkat stress</span> Anda! -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- <script>
+    const button = document.querySelector(".button");
+    const result = document.querySelector(".result");
+
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const form = document.querySelector("form");
+      const formData = new FormData(form);
+
+      fetch("/predict", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          // Lakukan sesuatu dengan respons dari server jika diperlukan
+          console.log(data);
+
+          // Tampilkan hasil prediksi dengan menambahkan kelas 'active' pada elemen hasil
+          result.classList.toggle("active");
+        })
+        .catch((error) => {
+          // Tangani error jika terjadi
+          console.error("Error:", error);
+        });
+    });
+  </script> -->
+</html>
