@@ -101,11 +101,25 @@
           src="{{ url_for('static', filename='healthcare-insurance-executive-providing-customer-support-2822965-2348914 1.svg') }}"
           alt=""
         />
+        {% if prediction == 1 %}
         <div class="result-text">
           <p>
-            {{ prediction_text }}
+            benul<span>{{ prediction_text }}</span>
           </p>
         </div>
+        {% elif prediction == 0 %}
+        <div class="result-text">
+          <p>
+            nda <span>{{ prediction_text }}</span>
+          </p>
+        </div>
+        {% else %}
+        <div class="result-text">
+          <p>
+            jawaban akan tampil disini
+          </p>
+        </div>
+        {% endif %}
       </div>
     </div>
   </body>
