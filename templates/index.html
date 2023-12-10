@@ -104,19 +104,13 @@
         {% if prediction == 1 %}
         <div class="result-text">
           <p>
-            benul<span>{{ prediction_text }}</span>
+            Dari data diatas, dapat disimpulkan bahwa kualitas fisik Anda <span style="color: #C3214B;">{{ prediction_text }}</span> pada <span style="color: #C3214B;">tingkat stress</span> Anda
           </p>
         </div>
         {% elif prediction == 0 %}
         <div class="result-text">
           <p>
-            nda <span>{{ prediction_text }}</span>
-          </p>
-        </div>
-        {% else %}
-        <div class="result-text">
-          <p>
-            jawaban akan tampil disini
+            Dari data diatas, dapat disimpulkan bahwa kualitas fisik Anda <span style="color: #357e52;">{{ prediction_text }}</span> pada <span style="color: #C3214B;">tingkat stress</span> Anda
           </p>
         </div>
         {% endif %}
