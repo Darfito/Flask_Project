@@ -97,20 +97,29 @@
         </form>
       </div>
       <div class="result gap-3">
+        {% if prediction == 1 %}
         <img
           src="{{ url_for('static', filename='healthcare-insurance-executive-providing-customer-support-2822965-2348914 1.svg') }}"
           alt=""
         />
-        {% if prediction == 1 %}
         <div class="result-text">
           <p>
             Dari data diatas, dapat disimpulkan bahwa kualitas fisik Anda <span style="color: #C3214B;">{{ prediction_text }}</span> pada <span style="color: #C3214B;">tingkat stress</span> Anda
           </p>
         </div>
         {% elif prediction == 0 %}
+        <img
+          src="{{ url_for('static', filename='healthcare-insurance-executive-providing-customer-support-2822965-2348914 1.svg') }}"
+          alt=""
+        />
         <div class="result-text">
           <p>
             Dari data diatas, dapat disimpulkan bahwa kualitas fisik Anda <span style="color: #357e52;">{{ prediction_text }}</span> pada <span style="color: #C3214B;">tingkat stress</span> Anda
+          </p>
+        </div>
+        {% else %}
+        <div class="result-text">
+          <p>
           </p>
         </div>
         {% endif %}
